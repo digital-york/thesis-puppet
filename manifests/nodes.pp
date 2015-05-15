@@ -1,0 +1,3 @@
+node 'thesis' {
+  include openjdk
+}
