@@ -1,2 +1,4 @@
- # import 'nodes.pp'
+node 'thesis' {
+  include openjdk
+}
 
