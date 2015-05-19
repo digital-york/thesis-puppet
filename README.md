@@ -15,6 +15,6 @@ Restart to take effect.
 # This job can be done by using a vagrant sheel command before puppet provisioner runs: 
 # http://stackoverflow.com/questions/17508081/installing-a-puppet-module-from-a-manifest-script
 $ puppet module install puppetlabs-tomcat
-
-
+$ puppet module install puppetlabs-ruby
+$ puppet module install puppetlabs-passenger
 
