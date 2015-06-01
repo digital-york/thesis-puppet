@@ -3,7 +3,7 @@ node 'thesis' {
   include devlibs
   include ruby
 
-  include ruby-gems
+  include rubygems
 
   notice("Installing nginx...")
   package { 'nginx': 
@@ -11,6 +11,9 @@ node 'thesis' {
     #require => Package['nginx-passenger']
   }
   notice("done.")
-  #include passenger
+  
+  notice("Installing nginx...")
+  include passenger
+  notice("done.")
 }
 
