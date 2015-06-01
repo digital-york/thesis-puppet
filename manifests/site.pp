@@ -12,8 +12,6 @@ node 'thesis' {
   }
   notice("done.")
   
-  notice("Installing nginx...")
   include passenger
-  notice("done.")
 }
 
