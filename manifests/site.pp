@@ -5,12 +5,8 @@ node 'thesis' {
 
   include rubygems
 
-  notice("Installing nginx...")
-  package { 'nginx': 
-    ensure => installed,
-    #require => Package['nginx-passenger']
-  }
-  notice("done.")
+  include apache
+  #############include nginx
   
   include passenger
 }

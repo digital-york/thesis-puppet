@@ -1,0 +1,43 @@
+<VirtualHost *:80>
+  ServerAdmin dlib-info@york.ac.uk
+  ServerName localhost
+  
+  RailsBaseURI /
+  RailsEnv development
+
+  Alias /theses "/opt/york/digilib/thesis/thesis_app/public"
+  <Location /theses>
+    PassengerBaseURI /theses
+    PassengerAppRoot /opt/york/digilib/thesis/thesis_app/
+  </Location>
+
+  <Directory "/opt/york/digilib/thesis/thesis_app/public">
+    AllowOverride None
+    Options -MultiViews FollowSymLinks
+    Order allow,deny
+    Allow from all
+  </Directory>
+  
+  <LocationMatch "^/assets/.*$">
+    # Use of ETag is discouraged when Last-Modified is present
+    Header unset ETag
+    FileETag None
+    # RFC says only cache for 1 year
+    ExpiresActive On
+    ExpiresDefault "access plus 1 year"
+  </LocationMatch>
+  
+  
+  Alias /cgi-bin "/usr/lib/cgi-bin"
+  <Directory "/usr/lib/cgi-bin">
+    AllowOverride None
+    Options None
+    Order allow,deny
+    Allow from all
+  </Directory>
+  
+  ErrorLog /var/log/apache2/error.log
+  LogLevel warn
+  CustomLog /var/log/apache2/access.log combined
+  
+</VirtualHost>
