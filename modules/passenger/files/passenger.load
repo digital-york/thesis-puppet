@@ -1,0 +1,2 @@
+LoadModule passenger_module /usr/local/rvm/gems/ruby-1.9.3-p327/gems/passenger-3.0.11/ext/apache2/mod_passenger.so 
+# See more at: http://www.42.mach7x.com/2012/12/12/writing-a-passenger-module-for-puppet-vagrant/#sthash.xpO61mzA.dpuf
