@@ -17,10 +17,12 @@ class apache {
   
   #Creaet symlinks for apache modules
   file { '/etc/apache2/mods-enabled/headers.load':
+    require => Package['apache2'],
     ensure => 'link',
     target => '/etc/apache2/mods-available/headers.load',
   }
   file { '/etc/apache2/mods-enabled/expires.load':
+    require => Package['apache2'],
     ensure => 'link',
     target => '/etc/apache2/mods-available/expires.load',
   }
