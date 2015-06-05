@@ -22,13 +22,20 @@ class apache {
     target => '/etc/apache2/mods-available/headers.load',
   }
   file { '/etc/apache2/mods-enabled/expires.load':
-    require => Package['apache2'],
+    require => File['/etc/apache2/mods-enabled/headers.load'],
     ensure => 'link',
     target => '/etc/apache2/mods-available/expires.load',
   }
-  
   file { '/etc/apache2/sites-available/default':
+    require => File['/etc/apache2/mods-enabled/expires.load'],
     source => 'puppet:///modules/apache/default',
+  }
+  
+  file { '/etc/apache2/sites-enabled/000-default':
+    require => File['/etc/apache2/sites-available/default'],
+    ensure => 'link',
+    target => '/etc/apache2/sites-available/default',
     notify => Service['apache2'],
   }
+  
 }
