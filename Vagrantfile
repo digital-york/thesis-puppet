@@ -6,9 +6,9 @@ Vagrant.configure(2) do |config|
 	
 	config.vm.provision :shell do |shell|
 		shell.inline = "mkdir -p /etc/puppet/modules;
-		puppet module install maestrodev/rvm --modulepath=/etc/puppet/modules;
-		puppet module install puppetlabs-ruby --modulepath=/etc/puppet/modules;
-		puppet module install puppetlabs-passenger --modulepath=/etc/puppet/modules;
+		sudo puppet module install maestrodev/rvm --modulepath=/etc/puppet/modules;
+		sudo puppet module install puppetlabs-ruby --modulepath=/etc/puppet/modules;
+		sudo puppet module install puppetlabs-passenger --modulepath=/etc/puppet/modules;
 	end
 	
 	config.vm.provision :puppet,

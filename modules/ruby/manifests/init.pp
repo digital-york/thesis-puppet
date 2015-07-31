@@ -9,6 +9,9 @@
 #  notice("Installed Ruby.")
 #}
 
+# make sure get rvm installed before using this module
+# See commands in Vagrantfile
+# Also, need to specify the additional module path in the command: /etc/puppet/modules and use rvmsudo insteadof sudo to get env vars
 class ruby {
   include rvm
   
