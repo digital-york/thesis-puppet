@@ -1,5 +1,4 @@
 class devlibs {
-  #notice("Installing packed software libraries ... ")
   exec { '/usr/bin/apt-get -y update':
     user => 'root'
   }
@@ -33,5 +32,4 @@ class devlibs {
   package { $dependencies:
     ensure => present,
   }
-  #notice("done.")
 }

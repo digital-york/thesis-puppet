@@ -1,6 +1,6 @@
-node 'ubuntu14' {
+node 'yf508-theses-puppet-1738031' {
   include openjdk
-  #include devlibs
+  include devlibs
   #include ruby
 
   #include rubygems
