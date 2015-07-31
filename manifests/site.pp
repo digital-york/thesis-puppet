@@ -1,5 +1,5 @@
 node 'ubuntu14' {
-  #include openjdk
+  include openjdk
   #include devlibs
   #include ruby
 
@@ -9,6 +9,6 @@ node 'ubuntu14' {
   
   #############include nginx
  
-  include passenger
+  #include passenger
 }
 
