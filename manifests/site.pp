@@ -1,13 +1,14 @@
-node 'thesis' {
-  include openjdk
-  include devlibs
-  include ruby
+node 'ubuntu14' {
+  #include openjdk
+  #include devlibs
+  #include ruby
 
-  include rubygems
+  #include rubygems
 
-  include apache
-  #############include nginx
+  #include apache
   
+  #############include nginx
+ 
   include passenger
 }
 
