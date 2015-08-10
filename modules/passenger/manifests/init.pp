@@ -23,13 +23,26 @@ class passenger {
   }
   package { 'passenger':
     #ensure => latest,
+    #user     => root,
+    #group    => root,
     ensure => '5.0.8',
     provider => 'gem',
   }
   
+  #ENV.each do |k,v|
+  #  puts k
+  #end
+
+  #$apache_module_installer = "/usr/local/rvm/rubies/"+$RUBY_VERSION.to_s+"/bin/passenger-install-apache2-module --auto"
+
+  exec { "apt-get -y update":
+    user => root,
+    group => root,
+  }
+  
   exec { "passenger-install-apache2-module --auto": 
-    user => root, 
-    group => root, 
+    #user => root, 
+    #group => root, 
     alias => "passenger_apache_module", 
     require => Package["apache2-prefork-dev","libcurl4-openssl-dev", "passenger"], 
     before => File["passenger_conf"] 
@@ -47,7 +60,7 @@ class passenger {
     owner => root, 
     group => root, 
     alias => "passenger_load", 
-    notify => Service["apache2"], 
+    #notify => Service["apache2"], 
     source => "puppet:///modules/passenger/passenger.load", 
     before => Exec["enable_passenger"] 
   }   
